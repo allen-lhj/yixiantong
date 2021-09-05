@@ -1,6 +1,8 @@
 <template>
   <div class="wrapper">
-   <h1>{{title}}</h1>
+    <div class="header">
+      <h1>{{title}}</h1>
+    </div>
   </div>
 </template>
 
@@ -9,7 +11,6 @@ export default {
   name: 'HelloWorld',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App',
       title: '生活一线通'
     }
   }
@@ -18,8 +19,14 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
+  @import '~styles/mixins.scss';
+  @import '~styles/variables.scss';
   .wrapper {
-    text-align: center;
-    color: red;
+    @include vh-center;
+    height: $headerHeight;
+    background-color: $defaultBgColor;
+    h1 {
+      font-size: .18rem;
+    }
   }
 </style>
