@@ -1,11 +1,16 @@
 <template>
   <div class="container">
-      City
+    <common-header />
   </div>
 </template>
 <script>
+import CommonHeader from '@/components/header/Common'
 export default {
-    
+  name: 'City',
+  components: {
+    CommonHeader
+  }
+
 }
 </script>
 <style lang="scss" scoped>
