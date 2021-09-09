@@ -28,5 +28,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
+@import '~styles/mixins.scss';
+@import '~styles/variables.scss';
+icon-wrapper {
+  @include flex-row;
+  flex-wrap: wrap;
+}
 </style>
