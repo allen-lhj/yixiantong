@@ -1,5 +1,5 @@
 <template>
-  <div class="icons-wrapper">
+  <div class="icon-wrapper">
     <category-icons-sub
     v-for="item of itemList"
     :bgColor="item.bgColor"
@@ -30,8 +30,10 @@ export default {
 <style lang="scss" scoped>
 @import '~styles/mixins.scss';
 @import '~styles/variables.scss';
-icon-wrapper {
+.icon-wrapper {
   @include flex-row;
   flex-wrap: wrap;
+  background-color: #fff;
+  border-bottom: 1px solid #ddd;
 }
 </style>

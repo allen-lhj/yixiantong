@@ -1,8 +1,9 @@
 <template>
-  <div class="item">
+  <div class="icon-item">
     <div class="icon" @click="onRouteTo(field)" :style="{backgroundColor:bgColor}">
       <span class="iconfont" :class="icon"></span>
     </div>
+    <p class="icon-text">{{iconText}}</p>
   </div>
 </template>
 
@@ -13,6 +14,7 @@ export default {
   props: {
     bgColor: String,
     icon: String,
+    field: String,
     iconText: {
       type: String,
       default() {
