@@ -33,6 +33,35 @@ export default {
 }
 </script>
 
-<style llang="scss" scoped>
-
+<style lang="scss" scoped>
+@import '~styles/mixins.scss';
+@import '~styles/variables.scss';
+.view-item {
+  width: 50%;
+  padding: .1rem;
+  .img {
+    width: 100%;
+    height: 1.1rem;
+    overflow: hidden;
+    .view-img {
+      width: 100%;
+      min-height: 1.1rem
+    }
+  }
+  .info {
+    .title {
+      @include ellipsis;
+      height: .3rem;
+      font-size: .16rem;
+      line-height: .3rem;
+      color: #000;
+    }
+    .stars {
+      height: .3rem;
+      line-height: .3rem;
+      font-size: .14rem;
+      color: #ccc;
+    }
+  }
+}
 </style>

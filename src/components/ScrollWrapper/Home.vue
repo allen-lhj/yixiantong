@@ -15,7 +15,7 @@
 <script>
 import ViewList from './ViewList/Index.vue'
 import BetterScroll from 'better-scroll'
-import CategoryIcons from './CategoryIcons'
+import CategoryIcons from './CategoryIcons/Index.vue'
 import HomeTitle from './Sub/HomeTitle'
 import { mapState } from 'vuex'
 import { IndexModel } from 'models/index'
