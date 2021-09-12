@@ -22,5 +22,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
+@import '~styles/mixins.scss';
+  .list-wrapper {
+    @include flex-row;
+    flex-wrap: wrap;
+    background-color: #fff;
+    border-bottom: 1px solid #ddd;
+  }
 </style>
