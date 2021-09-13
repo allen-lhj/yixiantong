@@ -3,4 +3,4 @@ import config from 'utils/config';
 
 class detailModel extends HTTP {}
 
-export { detailModel }
+export { detailModel };
