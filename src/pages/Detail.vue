@@ -1,19 +1,19 @@
 <template>
 	<div class="container">
 		<CommonHeader :title="title"></CommonHeader>
-		<!-- <detail-scroll-wrapper></detail-scroll-wrapper> -->
+		<detail-scroll-wrapper></detail-scroll-wrapper>
 	</div>
 </template>
 
 <script>
   import CommonHeader from 'components/header/Common'
-  // import DetailScrollWrapper from 'components/ScrollWrapper/Detail';
+  import DetailScrollWrapper from 'components/ScrollWrapper/Detail';
 
 	export default {
 		name: 'Detail',
 		components: {
-			CommonHeader
-			// DetailScrollWrapper
+			CommonHeader,
+			DetailScrollWrapper
 		},
 		data () {
 			return {

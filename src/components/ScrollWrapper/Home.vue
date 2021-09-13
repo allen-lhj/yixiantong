@@ -70,13 +70,11 @@ export default {
     ...mapState(['cityId'])
   },
   mounted() {
-    console.log(1)
     this.scroll = new BetterScroll(this.$refs.wrapper)
     this.currentCityId = this.cityId
     this.getHomeDatas(this.cityId)
   },
   activated() {
-    console.log(2)
     // 缓存时，城市改变，请求接口
     if (this.currentCityId !== this.cityId) {
       this.currentCityId = this.cityId
@@ -87,7 +85,6 @@ export default {
     getHomeDatas(cityId) {
       const indexModel = new IndexModel()
       indexModel.getHomeDatas(cityId).then(res => {
-        console.log(res)
         if (res&&res.status===0) {
           const data = res.data
           this.errorShow = false

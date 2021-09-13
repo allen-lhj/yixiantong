@@ -31,5 +31,8 @@ export default {
     @include vh-center;
     height: $headerHeight;
     background-color: $defaultBgColor;
+    h1 {
+			font-size: .18rem;
+		}
   }
 </style>
