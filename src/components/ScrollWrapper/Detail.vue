@@ -1,7 +1,8 @@
 <template>
   <div class="scroll-wrapper" ref="wrapper">
     <div class="scroll-content">
-      <detail-swiper :picDatas="detailData.pics" />
+      <div v-if="!errorShow">
+        <detail-swiper :picDatas="detailData.pics" />
       <detail-food 
 	       v-if="field === 'food'"
 	       :name="detailData.name"
@@ -57,6 +58,8 @@
 	       :price="Number(detailData.default_price)"
 	       :service="detailData.service"
 	       />
+      </div>
+      <error :errorShow="errorShow" />
     </div>
   </div>
 </template>
@@ -68,6 +71,7 @@
   import DetailView from './Detail/View'
   import DetailMassage from './Detail/Massage';
 	import DetailKtv from './Detail/Ktv'
+  import Error from './Sub/Error'
   import BetterScroll from 'better-scroll'
   import { DetailModel } from 'models/detail'
   import { jsonToArr, replaceToSpace, strToArr} from '@/utils/tool'
@@ -80,21 +84,34 @@
       DetailMassage,
 			DetailKtv,
       DetailView,
+      Error
     },
     data() {
       return {
         field: '',
         id: 0,
-        detailData: {}
+        detailData: {},
+        errorShow: false,
+        currentField: undefined
       }
     },
     mounted() {
       this.scroll = new BetterScroll(this.$refs.wrapper)
       this.field = this.$route.query.field
       this.id = this.$route.query.id
-      console.log(this.field, this.id)
       this.getDetail(this.field, this.id)
     },
+    // 已经缓存，重新进入组件是不会在请求接口
+    activated () {
+      this.currentField = this.$route.query.field;
+      this.currentId = this.$route.query.id;
+
+      if (this.currentField !== this.field || this.currentId !== this.id) {
+      	this.field = this.currentField;
+      	this.id = this.currentId;
+      	this.getDetail(this.field, this.id);
+      }
+		},
     methods: {
       getDetail(field, id) {
         const detailModel = new DetailModel()
@@ -106,7 +123,9 @@
       			data.recom && (data.recom = replaceToSpace(data.recom));
       			data.service && (data.service = jsonToArr(data.service));
             this.detailData = data
-            console.log(this.detailData)
+          } else {
+            this.errorShow = true
+            console.log({ statusCode: res.status, errorMsg: res.error })
           }
         })
       }
