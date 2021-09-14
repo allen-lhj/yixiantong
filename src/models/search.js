@@ -1,6 +1,30 @@
 import { HTTP } from 'utils/http';
 import config from 'utils/config';
 
-class SearchModel extends HTTP {}
+class SearchModel extends HTTP {
+  SearchAction (keyword, cityId) {
+    return new Promise((resolve, reject) => {
+      this.axiosPost({
+        url: config.axiosPost.SEARCH_ACTION,
+        data: {
+          keyword,
+          cityId
+        },
+        success (data) {
+          resolve({
+            data,
+            status: 0
+          })
+        },
+        error(error) {
+          resolve({
+            error,
+            status: -1
+          })
+        }
+      })
+    })
+  }
+}
 
 export { SearchModel }
