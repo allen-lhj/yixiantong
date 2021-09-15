@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <CommonHeader :title="title"></CommonHeader>
-    <search-input @onSearch="onSearch"></search-input>
+    <search-input></search-input>
   </div>
 </template>
 

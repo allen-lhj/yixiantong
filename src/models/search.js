@@ -5,7 +5,7 @@ class SearchModel extends HTTP {
   SearchAction (keyword, cityId) {
     return new Promise((resolve, reject) => {
       this.axiosPost({
-        url: config.axiosPost.SEARCH_ACTION,
+        url: config.API.SEARCH_ACTION,
         data: {
           keyword,
           cityId

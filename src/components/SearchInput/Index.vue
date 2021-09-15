@@ -9,7 +9,7 @@
 
 <script>
   import { mapState } from 'vuex'
-  import { trimSpace } from 'utils/tool'
+  import { trimSpace, throttle } from 'utils/tool'
   import { SearchModel } from 'models/search'
   export default {
     name: 'SearchInput',
@@ -23,17 +23,21 @@
       ...mapState(['cityId'])
     },
     methods: {
-      onSearch() {
-        const keyword = trimSpace(this.keyword)
-        if (keyword.length <= 0) {
-          return 
-        }
-       const searchModel = new SearchModel()
-        searchModel.searchAction(keyword, this.cityId).then(res => {
-          console.log(res)
-        })
-      }
-    }
+			onSearch: throttle(function () {
+				const keyword = trimSpace(this.keyword);
+
+				if (keyword.length <= 0) {
+					this.$emit('onSearch', {});
+					return;
+				}
+
+        const searchModel = new SearchModel();
+
+        searchModel.searchAction(keyword, this.cityId).then((res) => {
+          this.$emit('onSearch', res);
+        });
+			}, 1000)
+		}
   }
 </script>
 

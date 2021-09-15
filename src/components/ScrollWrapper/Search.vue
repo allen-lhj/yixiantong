@@ -1,7 +1,7 @@
 <template>
 	<div class="container">
 		<common-header :title="title"></common-header>
-		<search-input @onSearch="onSearch"></search-input>
+		<search-input></search-input>
 		<!-- <search-scroll-wrapper :data="data"></search-scroll-wrapper> -->
 	</div>
 </template>
