@@ -1,19 +1,23 @@
 <template>
   <div class="container">
     <CommonHeader :title="title"></CommonHeader>
-    </div>
+    <search-input @onSearch="onSearch"></search-input>
+  </div>
 </template>
-<script>
 
+<script>
 import CommonHeader from 'components/header/Common'
+import SearchInput from 'components/SearchInput'
 export default {
   name: 'Search',
   components: {
-    CommonHeader
+    CommonHeader,
+    SearchInput
   },
   data() {
     return {
-      title: '商家搜索'
+      title: '商家搜索',
+      data: {}
     }
   }
 }

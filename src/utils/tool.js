@@ -18,3 +18,7 @@ export function strToArr (str) {
 export function replaceToSpace (str) {
   return str.replace(/,/g, ' ');
 }
+
+export function trimSpace(str) {
+  return str.replace(/\s+/g, '')
+}
