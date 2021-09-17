@@ -12,6 +12,7 @@
   "dependencies": {
     "axios": "^0.19.0",
     "better-scroll": "^1.15.2",
+    "chilk": "^1.0.4",
     "qs": "^6.10.1",
     "vue": "^2.5.2",
     "vue-awesome-swiper": "^3.1.3",
